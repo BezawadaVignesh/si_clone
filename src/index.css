@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+ .split-pane-col {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.split-pane-row {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.split-pane-top,
+.split-pane-bottom,
+.split-pane-right,
+.split-pane-left {
+  flex: 1;
+  overflow: hidden;
+}
+
+
+.separator-col {
+  cursor: col-resize;
+}
+.separator-col,
+.separator-row{
+  border: 5px solid rgb(167, 149, 149, 0.5);
+}
+.separator-row {
+  cursor: row-resize;
+}
+

@@ -1,18 +1,62 @@
-import { useState } from "react";
+import SplitPane, {
+  Divider,
+  SplitPaneBottom,
+  SplitPaneLeft,
+  SplitPaneRight,
+  SplitPaneTop,
+} from "./containers/SplitPane";
+import { QusetionDisplay } from "./containers/QuestionDisplay";
 
-export default function App() {
-  const [tsize, setTsize] = useState("text-6xl");
+import React, { useRef } from "react";
+
+import Editor, { Monaco } from "@monaco-editor/react";
+import { editor } from "monaco-editor";
+
+function App() {
+  const editorRef:
+    | React.MutableRefObject<editor.IStandaloneCodeEditor>
+    | React.MutableRefObject<null> = useRef(null);
+
+  function handleEditorDidMount(
+    editor: editor.IStandaloneCodeEditor,
+    monaco: Monaco
+  ) {
+    editorRef.current = editor;
+  }
+
+  function showValue() {
+    alert(editorRef.current?.getValue());
+  }
+
   return (
-    <div className="flex justify-center items-center w-full h-screen bg-gradient-to-r from-teal-200 to-teal-500">
-      <div className=" text-black">
-        <h1
-          className={tsize + " font-mono"}
-          onMouseOver={() => setTsize("text-7xl")}
-          onMouseOut={() => setTsize("text-6xl")}
-        >
-          Hello Rahul!
-        </h1>
-      </div>
-    </div>
+    <>
+      <SplitPane className="split-pane-row">
+        <SplitPaneLeft>
+          <QusetionDisplay/>
+        </SplitPaneLeft>
+        <Divider className="separator-col" />
+
+        <SplitPaneRight>
+          <SplitPane>
+            <SplitPaneTop>
+              <Editor
+                height="90vh"
+                // defaultLanguage="c"
+                defaultValue="// Write your code here"
+                language="c"
+                onMount={handleEditorDidMount}
+                className=" p-3"
+              />
+            </SplitPaneTop>
+            <Divider className="separator-row" />
+            <SplitPaneBottom>
+              <button onClick={showValue}>Show Value</button>
+            </SplitPaneBottom>
+          </SplitPane>
+        </SplitPaneRight>
+      </SplitPane>
+    </>
   );
 }
+
+export default App;

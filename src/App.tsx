@@ -11,6 +11,7 @@ import React, { useRef } from "react";
 
 import Editor, { Monaco } from "@monaco-editor/react";
 import { editor } from "monaco-editor";
+import Main from "./containers/Main";
 
 function App() {
   const editorRef:
@@ -30,31 +31,7 @@ function App() {
 
   return (
     <>
-      <SplitPane className="split-pane-row">
-        <SplitPaneLeft>
-          <QusetionDisplay/>
-        </SplitPaneLeft>
-        <Divider className="separator-col" />
-
-        <SplitPaneRight>
-          <SplitPane>
-            <SplitPaneTop>
-              <Editor
-                height="90vh"
-                // defaultLanguage="c"
-                defaultValue="// Write your code here"
-                language="c"
-                onMount={handleEditorDidMount}
-                className=" p-3"
-              />
-            </SplitPaneTop>
-            <Divider className="separator-row" />
-            <SplitPaneBottom>
-              <button onClick={showValue}>Show Value</button>
-            </SplitPaneBottom>
-          </SplitPane>
-        </SplitPaneRight>
-      </SplitPane>
+      <Main />
     </>
   );
 }

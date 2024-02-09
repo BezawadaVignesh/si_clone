@@ -19,8 +19,8 @@ export default function Login() {
 
 
 
-              </h1>
-
+                </h1>
+                <a href='#' className='text-right font-bold underline text-[1rem]'>Login</a>
 
             </div>
         </nav>
@@ -33,7 +33,7 @@ export default function Login() {
                 
     
                 <div className="box-border  block relative p-[16px] rounded justify-center items-center">
-                    <form className="flex-col box-border flex mt-0 mb-0 gap-[25px]">
+                    <form className="flex-col box-border flex mt-0 mb-0 gap-[40px]">
                         <div className='entryarea'>
                             <label htmlFor="uname" className='labelline'> Username </label>
                             <input type="text" id='uname' required />      

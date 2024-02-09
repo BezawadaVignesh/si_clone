@@ -1,0 +1,58 @@
+
+.labelline {
+    position: absolute;
+    padding: 0 12px;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: normal;
+    opacity: 0.9;
+    line-height: 20px;
+    color: black;
+    transition: 0.2s ease;
+  }
+  
+  .entryarea {
+    position: relative;
+    /* box-sizing: border-box; */
+  
+  }
+  
+  input {
+    position: relative;
+    width: 100%;
+    outline: none;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #0000001f;
+    line-height: 50px;
+    background: transparent;
+    transition: 0.1s ease;
+    z-index: 1111;
+  }
+  
+  
+  input:focus, input:valid {
+    color: #673ab7;
+    border: 2px solid #673ab7;
+  
+  }
+  
+  input:focus + .labelline, input:valid + .labelline {
+    color: #673ab7;
+    /* background-color: #673ab7; */
+    /* height: 30px; */
+    line-height: 30px;
+    transform: translate(-15px, -16px) scale(0.88);
+    
+  }
+  
+  
+  button {
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid #673ab7;
+    line-height: 40px;
+    background-color: #673ab7;
+  }

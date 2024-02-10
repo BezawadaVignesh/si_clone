@@ -1,58 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
 
-.labelline {
+ .split-pane-col {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.split-pane-row {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.split-pane-top,
+.split-pane-bottom,
+.split-pane-right,
+.split-pane-left {
+    flex: 1;
+    overflow: hidden;
+}
+
+
+.separator-col {
+    cursor: col-resize;
+}
+.separator-col,
+.separator-row{
+    border: 5px solid rgb(167, 149, 149, 0.5);
+}
+.separator-row {
+    cursor: row-resize;
+}
+
+.input-label {
+    position: absolute;
+    top: 45%;
+    left: 10px;
+    font-size: 14px;
+    transform: translateY(-50%);
+    color: #696969;
+    pointer-events: none;
+    transition: 0.4s ease-out;
+    z-index: 1;
+}
+
+.input-label-focused {
+    color: #673ab7;
+    background: white;
+    padding: 0 7px;
+    top: 0;
+    line-height: 30px;
+    transform: translate(-12px, -16px) scale(0.78);
+    z-index: 2;
+    
+}
+  
+
+
+/* label {
     position: absolute;
     padding: 0 12px;
     margin-top: 15px;
     font-size: 14px;
+    
+    left: 0;
     font-weight: 400;
     letter-spacing: normal;
-    opacity: 0.9;
+    pointer-events: none;
     line-height: 20px;
     color: black;
     transition: 0.2s ease;
-  }
-  
-  .entryarea {
+   
+    
+} */
+
+.input-container {
     position: relative;
-    /* box-sizing: border-box; */
-  
-  }
-  
-  input {
+}
+
+/* input {
     position: relative;
     width: 100%;
     outline: none;
     padding: 0 10px;
     border-radius: 5px;
     border: 1px solid #0000001f;
-    line-height: 50px;
+    min-height: 50px;
     background: transparent;
     transition: 0.1s ease;
-    z-index: 1111;
-  }
+    z-index: 1;
+} */
+
+
+.input-field {
+    position: relative;
+    width: 100%;
+    outline: none;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #0000001f;
+    min-height: 50px;
+    transition: 0.1s ease;
+}
   
+
+.input-field:hover {
+    border: 2px solid #000000;
+    /* border: #ff0000; */
+}
   
-  input:focus, input:valid {
-    color: #673ab7;
+.input-field:focus, .input-field:valid {
     border: 2px solid #673ab7;
-  
+    z-index: 1;
   }
   
-  input:focus + .labelline, input:valid + .labelline {
+.input-error {
+    border: 2px solid red;
+}
+
+.input-label-error {
+    color: red;
+}
+
+
+/* input:focus + label, input:valid + label {
     color: #673ab7;
-    /* background-color: #673ab7; */
-    /* height: 30px; */
-    line-height: 30px;
-    transform: translate(-15px, -16px) scale(0.88);
+    padding: 0 5px;
     
-  }
-  
-  
-  button {
+    transform: translate(0px, -25px) scale(0.88);
+    z-index: 2;
+    
+} */
+
+
+
+
+button {
+    /* width: 100%; */
     color: white;
     font-weight: 600;
     border-radius: 5px;
     border: 1px solid #673ab7;
     line-height: 40px;
     background-color: #673ab7;
-  }
+}
+
+
